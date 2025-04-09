@@ -1,0 +1,234 @@
+<html>
+  <head>
+    <title>Ecommerce</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="bg-white shadow-md sticky top-0 z-50 p-3">
+      <div
+        class="container mx-auto px-4 py-2 flex justify-between items-center"
+      >
+        <!-- Logo/Brand -->
+        <div>
+          <a href="./index.html" class="text-xl font-bold">Ecommerce</a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-4">
+          <a class="text-gray-700 hover:text-gray-900" href="./index.html"
+            >Home</a
+          >
+          <a
+            class="text-gray-700 hover:text-gray-900"
+            href="./index.html#productSection"
+            >Products</a
+          >
+          <a class="text-gray-700 hover:text-gray-900" href="./about.html"
+            >About</a
+          >
+          <a class="text-gray-700 hover:text-gray-900" href="./contact.html"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Desktop Auth/Cart -->
+        <div class="hidden md:flex space-x-4">
+          <a class="text-gray-700 hover:text-gray-900" href="./loginPage.html"
+            >Login</a
+          >
+          <a
+            class="text-gray-700 hover:text-gray-900"
+            href="./registerPage.html"
+            >Register</a
+          >
+          <a class="text-gray-700 hover:text-gray-900" href="./cart.html">
+            <i class="fas fa-shopping-cart"></i>
+            Cart
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button class="outline-none mobile-menu-button">
+            <svg
+              class="w-6 h-6 text-gray-700"
+              x-show="!showMenu"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="hidden mobile-menu transition-all duration-300 ease-in-out">
+        <div class="container mx-auto px-4 py-2 flex flex-col space-y-2">
+          <a
+            class="block py-2 text-gray-700 hover:text-gray-900"
+            href="./index.html"
+            >Home</a
+          >
+          <a
+            class="block py-2 text-gray-700 hover:text-gray-900"
+            href="./index.html#productSection"
+            >Products</a
+          >
+          <a
+            class="block py-2 text-gray-700 hover:text-gray-900"
+            href="./about.html"
+            >About</a
+          >
+          <a
+            class="block py-2 text-gray-700 hover:text-gray-900"
+            href="./contact.html"
+            >Contact</a
+          >
+          <div class="border-t border-gray-200 my-2"></div>
+          <a
+            class="block py-2 text-gray-700 hover:text-gray-900"
+            href="./loginPage.html"
+            >Login</a
+          >
+          <a
+            class="block py-2 text-gray-700 hover:text-gray-900"
+            href="./registerPage.html"
+            >Register</a
+          >
+          <a
+            class="block py-2 text-gray-700 hover:text-gray-900"
+            href="./cart.html"
+          >
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="relative">
+      <img
+        alt="Forest with mist"
+        class="w-full h-96 object-cover"
+        height="600"
+        src="./main.png.jpg"
+        width="1920"
+      />
+      <div
+        class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+      >
+        <div class="text-center text-white">
+          <h1 class="text-4xl font-bold">New Season Arrivals</h1>
+          <p class="mt-2">
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.
+          </p>
+        </div>
+      </div>
+    </header>
+    <main class="container mx-auto px-4 py-8" id="productSection">
+      <h2 class="text-2xl font-bold text-center mb-4">Latest Products</h2>
+      <div class="flex justify-center space-x-4 mb-8">
+        <button
+          onclick="filterProducts('all')"
+          class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition"
+        >
+          All
+        </button>
+        <button
+          onclick="filterProducts(`men's clothing`)"
+          class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition"
+        >
+          Men's Clothing
+        </button>
+        <button
+          onclick="filterProducts(`women's clothing`)"
+          class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition"
+        >
+          Women's Clothing
+        </button>
+        <button
+          onclick="filterProducts('jewelery')"
+          class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition"
+        >
+          Jewelery
+        </button>
+        <button
+          onclick="filterProducts('electronics')"
+          class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 transition"
+        >
+          Electronics
+        </button>
+      </div>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+        id="products-container"
+      >
+        <!-- Products will be inserted here by JavaScript -->
+      </div>
+    </main>
+
+    <footer class="bg-slate-100 rounded-sm shadow-sm light:bg-gray-900 my-4 p-1 min-w-[100%] min-h-[150px]">
+      <div class="w-full max-w-screen-xl mx-auto p-1 md:py-4">
+        <div class="sm:flex sm:items-center sm:justify-between">
+          <a
+            href="https://flowbite.com/"
+            class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
+          >
+            <img
+              src="./Chaitu.png"
+              class="h-8 rounded-2xl"
+              alt="Flowbite Logo"
+            />
+            <span
+              class="self-center text-2xl font-semibold whitespace-nowrap dark:text-dark"
+              >Chaitanya</span
+            >
+          </a>
+          <ul
+            class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400"
+          >
+            <li>
+              <a href="./about.html" class="hover:underline me-4 md:me-6">About</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline me-4 md:me-6"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+            </li>
+            <li>
+              <a href="./contact.html" class="hover:underline">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <hr
+          class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"
+        />
+        <span
+          class="block text-sm text-gray-500 sm:text-center dark:text-gray-400"
+          >© 2025
+          <a href="https://chaitanya-portfolio-me.netlify.app/" class="hover:underline">Chaitanya</a>.
+          All Rights Reserved.</span
+        >
+      </div>
+    </footer>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
